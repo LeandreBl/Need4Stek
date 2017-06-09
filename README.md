@@ -26,6 +26,8 @@ All the sources are in the src file, and the libraries that i'm using are or min
 ./tek_kart --server <nickname>
 ./tek_kart --join <ip> <nickname>
 
+video at https://youtu.be/m9tldkSDbig
+
 Léandre Blanchard
 { Epitech } 2021
 Paris
