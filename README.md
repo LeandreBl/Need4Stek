@@ -26,6 +26,8 @@ All the sources are in the src file, and the libraries that i'm using are or min
 ./tek_kart --server <nickname>
 ./tek_kart --join <ip> <nickname>
 
+took 42 hours to make
+
 video at https://youtu.be/m9tldkSDbig
 
 Léandre Blanchard
