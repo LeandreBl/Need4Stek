@@ -28,7 +28,7 @@ All the sources are in the src file, and the libraries that i'm using are or min
 
 took 41 hours to make
 
-video at https://youtu.be/m9tldkSDbig
+video at 'in upload'
 
 Léandre Blanchard
 { Epitech } 2021
