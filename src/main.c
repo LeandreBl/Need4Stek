@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Tue May  2 18:25:14 2017 Léandre Blanchard
-** Last update Wed Nov  1 18:57:43 2017 Léandre Blanchard
+** Last update Tue Nov  7 00:08:51 2017 Léandre Blanchard
 */
 
 #include <X11/Xlib.h>
@@ -78,7 +78,7 @@ int		main(int ac, char **av)
 
   if (error_gest(ac, av) != 0)
     return (usage());
-  if ((window = init_window(720, 16.0 / 9.0, "Tek_Kart")) == NULL)
+  if ((window = init_window(720, 16.0 / 9.0, "Tek_Kart", 1)) == NULL)
     return (-1);
   if ((textures = init_textures()) == NULL)
     return (-1);

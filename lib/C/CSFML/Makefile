@@ -42,7 +42,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(MAKE) ../default
-	$(ARCH) rc $(NAME) $(OBJS) $(LIBC)
+	$(ARCH) rcT $(NAME) $(LIBC) $(OBJS)
 
 clean:
 	$(MAKE) ../default clean

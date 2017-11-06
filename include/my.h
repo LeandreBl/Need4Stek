@@ -5,7 +5,7 @@
 ** Login   <lblanchard@epitech.net>
 ** 
 ** Started on  Thu Oct 13 09:19:01 2016 Leandre Blanchard
-** Last update Mon Oct 30 23:25:41 2017 Léandre Blanchard
+** Last update Sat Nov  4 03:19:41 2017 Léandre Blanchard
 */
 
 #ifndef MY_H_
@@ -19,6 +19,9 @@ extern "C" {
 }
 #endif
 # include <stddef.h>
+
+/* man 3 memset */
+void	my_memset(void *ptr, int value, size_t size);
 
 /*
 ** Isacmd returns 1 if the cmd exist in $PATH

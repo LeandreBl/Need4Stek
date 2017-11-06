@@ -27,7 +27,7 @@ $(NAME):
 	$(MAKE) default
 	$(MAKE) getline_shell
 	$(MAKE) get_next_line
-	ar -rcT $(NAME) $(SRCS)
+	ar rcT $(NAME) $(SRCS)
 clean:
 	$(MAKE) catalloc clean
 	$(MAKE) printf clean

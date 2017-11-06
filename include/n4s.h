@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Tue May  2 18:25:26 2017 Léandre Blanchard
-** Last update Wed Nov  1 17:25:51 2017 Léandre Blanchard
+** Last update Tue Nov  7 00:08:15 2017 Léandre Blanchard
 */
 
 #ifndef N4S_H_
@@ -19,7 +19,7 @@
 # include "my.h"
 # include "colors.h"
 # include "defines.h"
-# include "my_csfml.h"
+# include "csfml.h"
 
 # define DIST_ 0.01
 # define NAME_SIZE 20

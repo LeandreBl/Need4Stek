@@ -5,11 +5,10 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Wed Apr  5 14:48:58 2017 Léandre Blanchard
-** Last update Sat Oct 14 21:43:57 2017 Léandre Blanchard
+** Last update Wed Nov  1 20:32:56 2017 Léandre Blanchard
 */
 
 #include "csfml.h"
-#include "../my.h"
 
 /*
 ** When you are loading 5 sprites but with 1 image, such as

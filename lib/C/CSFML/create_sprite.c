@@ -5,12 +5,11 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Sun Apr  2 12:20:16 2017 Léandre Blanchard
-** Last update Sat Oct 14 21:42:49 2017 Léandre Blanchard
+** Last update Wed Nov  1 20:33:10 2017 Léandre Blanchard
 */
 
 #include "csfml.h"
-#include "../my.h"
-#include "../colors.h"
+#include "colors.h"
 
 /*
 ** add the t_sprite "sprite" on the t_window "window" at the pos.x, pos.y

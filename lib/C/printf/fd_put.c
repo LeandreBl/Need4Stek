@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Thu Sep  7 14:58:28 2017 Léandre Blanchard
-** Last update Wed Oct 25 21:21:29 2017 Léandre Blanchard
+** Last update Sat Nov  4 03:58:53 2017 Léandre Blanchard
 */
 
 #include <stdlib.h>
@@ -28,6 +28,8 @@ void		fd_putstr(int fd, const char *str)
 
 void		fd_putnbr(int fd, int nbr)
 {
+  if (nbr == 0)
+    fd_putchar(fd, '0');
   if (nbr < 0)
     {
       fd_putchar(fd, '-');

@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Fri Mar 31 13:58:23 2017 Léandre Blanchard
-** Last update Wed Nov  1 16:16:43 2017 Léandre Blanchard
+** Last update Sat Nov  4 04:04:19 2017 Léandre Blanchard
 */
 
 #ifndef MY_CSFML_H_
@@ -13,6 +13,9 @@
 
 #ifdef __cplusplus
 extern "C" {
+#endif
+#ifdef __horriblethingwithemacs
+}
 #endif
 
 # include <SFML/Audio.h>
@@ -33,7 +36,7 @@ extern "C" {
 # include <curses.h>
 # include <dirent.h>
 
-# include "../my.h"
+# include "my.h"
 
 # define KP(key) sfKeyboard_isKeyPressed(key)
 # define MP sfMouse_isButtonPressed(sfMouseLeft)
@@ -94,6 +97,8 @@ void		window_clear(t_window *window);
 
 int		key_released(int key);
 
+void		window_update(t_window *window);
+
 void		window_refresh(t_window *window);
 
 void		put_sprite(t_window *window, t_sprite *sprite, sfVector2f pos);
@@ -105,9 +110,9 @@ void		close_win(t_window *window);
 
 sfVector2i	xy_vectori(int x, int y);
 
-sfVector2f      xy_vectorf(float x, float y);
+sfVector2f	xy_vectorf(float x, float y);
 
-sfVector3f      xyz_vector(float x, float y, float z);
+sfVector3f	xyz_vector(float x, float y, float z);
 
 sfVector2i	pos_mouse(t_window *window);
 
@@ -117,19 +122,21 @@ void		put_square(sfVector2i pos, sfColor color,
 void		draw_circle(t_window *window, sfVector2f pos,
 			    int size, sfColor color);
 
-void            put_png_resize(t_window *window, sfVector2f pos,
+void		put_png_resize(t_window *window, sfVector2f pos,
 			       const char *name, sfVector2f resize);
 
-void            put_png(t_window *window, sfVector2f pos, const char *name);
+void		put_png(t_window *window, sfVector2f pos, const char *name);
 
-int             my_put_pixel(t_window *window, int x, int y, sfColor color);
+int		my_put_pixel(t_window *window, int x, int y, sfColor color);
+
+void		clear_color(t_window *window, sfColor color);
 
 void		clear_white(t_window *window);
 
 void		put_word(char *word, sfVector2f pos,
 			 t_window *window, sfColor color);
 
-void            put_number(int nb, sfVector2f pos,
+void		put_number(int nb, sfVector2f pos,
 			   t_window *window, sfColor color);
 
 t_window	*init_window(int height, float dim, char *name, int bar);

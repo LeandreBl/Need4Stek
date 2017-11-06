@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Fri Mar 31 13:56:13 2017 Léandre Blanchard
-** Last update Wed Nov  1 16:20:07 2017 Léandre Blanchard
+** Last update Fri Nov  3 02:58:24 2017 Léandre Blanchard
 */
 
 #include "csfml.h"
@@ -19,7 +19,7 @@ int		my_put_pixel(t_window *window, int x, int y, sfColor color)
 {
   if (x < 0 || y < 0)
     return (-1);
-  if (x > window->width || y >= window->height)
+  if (x >= window->width || y >= window->height)
     return (-1);
   window->pixels[(window->width * y + x) * 4 + 0] = color.r;
   window->pixels[(window->width * y + x) * 4 + 1] = color.g;

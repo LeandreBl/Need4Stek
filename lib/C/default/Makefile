@@ -64,6 +64,7 @@ SRCS	+= tablen.c
 SRCS	+= total_name.c
 SRCS	+= zeros.c
 SRCS	+= isacmd.c
+SRCS	+= memset.c
 
 OBJS	= $(SRCS:.c=.o)
 
