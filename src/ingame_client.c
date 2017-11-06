@@ -49,6 +49,6 @@ int		ingame_client(t_window *window, t_texture *textures,
       wait_music(window);
     }
   sfMusic_stop(window->musics[0]);
-  free_tab(textures->map);
+  free_tab(&textures->map);
   return (0);
 }

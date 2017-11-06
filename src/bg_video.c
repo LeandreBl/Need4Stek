@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Thu Jun  1 14:31:57 2017 Léandre Blanchard
-** Last update Mon Jun  5 17:03:31 2017 Léandre Blanchard
+** Last update Wed Nov  1 17:22:50 2017 Léandre Blanchard
 */
 
 #include "n4s.h"
@@ -25,11 +25,11 @@ static int		add_one(int j, t_sprite **video,
 {
   char			*s;
 
-  if ((s = my_catalloc(pathname, "/", name)) == NULL)
+  if ((s = catalloc("%s/%s", pathname, name)) == NULL)
     return (-1);
   if ((video[j] = create_sprite(s)) == NULL)
     return (-1);
-  free(s);
+  sfree(&s);
   return (0);
 }
 
@@ -44,7 +44,7 @@ t_sprite		**create_videomode(const char *pathname)
   j = 0;
   if ((names = recup_karts(pathname)) == NULL)
     return (NULL);
-  if ((video = create_sprites(my_tablen(names) - 2)) == NULL)
+  if ((video = create_sprites(tablen(names) - 2)) == NULL)
     return (NULL);
   while (names[i] != NULL)
     {
@@ -53,6 +53,6 @@ t_sprite		**create_videomode(const char *pathname)
 	  return (NULL);
       i++;
     }
-  free_tab(names);
+  free_tab(&names);
   return (video);
 }

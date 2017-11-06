@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Fri May  5 11:12:17 2017 Léandre Blanchard
-** Last update Wed May 31 14:01:45 2017 Léandre Blanchard
+** Last update Wed Nov  1 17:19:32 2017 Léandre Blanchard
 */
 
 #include "n4s.h"
@@ -18,7 +18,7 @@ int             init_minimap(t_texture *textures)
 
   map = textures->map;
   width = max_len(map) + 1;
-  height = my_tablen(map) + 1;
+  height = tablen(map) + 1;
   if ((textures->smap = malloc(sizeof(t_sprite))) == NULL)
     return (-1);
   if ((textures->pmap = malloc(sizeof(sfUint8) * width * height * 4)) == NULL)
@@ -34,7 +34,7 @@ static sfMusic	*load_one(const char *pathname, const char *name)
 
   if ((music = sfMusic_createFromFile(pathname)) == NULL)
     return (NULL);
-  my_printf(MUSIC_FOUND, BOLDBLUE, BOLDWHITE, name, BOLDBLUE, RESET);
+  mprintf(MUSIC_FOUND, BOLDBLUE, BOLDWHITE, name, BOLDBLUE, RESET);
   return (music);
 }
 

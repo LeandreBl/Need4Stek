@@ -53,7 +53,7 @@ static int	put_players_kart(t_player *players,
     {
       pos = XYI((int)players[i].info->pos.x, (int)players[i].info->pos.y);
       info.width = my_strlen(map[pos.y]);
-      info.height = my_tablen(map);
+      info.height = tablen(map);
       info.color = get_kart_color(players[i].info->skin);
       if (players[i].info->skin >= 0)
 	put_mini_pixel(textures->pmap, info.width - pos.x, pos.y, info);
@@ -82,13 +82,13 @@ int		minimap(t_texture *textures,
   t_minimap	info;
 
   i = 0;
-  while (i != my_tablen(map))
+  while (i != tablen(map))
     {
       j = 0;
       while (j != my_strlen(map[i]))
 	{
 	  info.width = my_strlen(map[i]);
-	  info.height = my_tablen(map);
+	  info.height = tablen(map);
 	  info.color = select_color(map, i, j);
 	  put_mini_pixel(textures->pmap, info.width - j, i, info);
 	  j++;
@@ -97,7 +97,7 @@ int		minimap(t_texture *textures,
     }
   put_players_kart(players, textures, map);
   sfTexture_updateFromPixels(textures->smap->texture,
-			     textures->pmap, my_strlen(map[0]), my_tablen(map), 0, 0);
+			     textures->pmap, my_strlen(map[0]), tablen(map), 0, 0);
   sfSprite_setTexture(textures->smap->sprite, textures->smap->texture, sfTrue);
   return (0);
 }

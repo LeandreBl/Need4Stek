@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Tue May  2 18:39:04 2017 Léandre Blanchard
-** Last update Fri Jun  2 13:40:48 2017 Léandre Blanchard
+** Last update Wed Nov  1 19:24:07 2017 Léandre Blanchard
 */
 
 #include "n4s.h"
@@ -35,21 +35,20 @@ static sfImage		**init_images(void)
   int			i;
   sfImage		**images;
   char			*s;
-  char			*nb;
 
   i = 0;
   if ((images = malloc(sizeof(sfImage *) * NB_IMAGES + 8)) == NULL)
     return (NULL);
   while (i != NB_IMAGES)
     {
-      if ((nb = int_char(i)) == NULL)
+      s = catalloc("%s%d.png", PATH_IMAGES, i);
+      mprintf("%s\n", s);
+      if (s == NULL)
 	return (NULL);
-      if ((s = my_catalloc(PATH_IMAGES, nb, ".png")) == NULL)
-	return (NULL);
-      if ((images[i] = sfImage_createFromFile(s)) == NULL)
+      images[i] = sfImage_createFromFile(s);
+      if (images[i] == NULL)
 	return (NULL);
       free(s);
-      free(nb);
       i++;
     }
   images[i] = NULL;

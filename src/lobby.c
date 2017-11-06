@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Wed May  3 13:47:25 2017 Léandre Blanchard
-** Last update Fri Jun  9 08:25:47 2017 Léandre Blanchard
+** Last update Wed Nov  1 17:23:24 2017 Léandre Blanchard
 */
 
 #include "n4s.h"
@@ -24,7 +24,7 @@ static sfMusic	*load_music_play(const char *pathname)
 
 static int	your_ip()
 {
-  my_printf(Y_IP, BOLDWHITE, BOLDYELLOW,
+  mprintf(Y_IP, BOLDWHITE, BOLDYELLOW,
 	    sfIpAddress_getLocalAddress().address,
 	    BOLDCYAN, BOLDYELLOW,
 	    sfIpAddress_getPublicAddress(sfSeconds(4)).address,

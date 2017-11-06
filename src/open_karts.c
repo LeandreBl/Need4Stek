@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Tue May 16 14:48:31 2017 Léandre Blanchard
-** Last update Thu Jun  1 15:41:30 2017 Léandre Blanchard
+** Last update Wed Nov  1 17:20:43 2017 Léandre Blanchard
 */
 
 #include <dirent.h>
@@ -43,7 +43,7 @@ int			all_karts(t_sprite ***sprites)
   sfVector2i		xy;
 
   xy.x = -1;
-  my_printf(BOX_, BOLDWHITE, RESET);
+  mprintf(BOX_, BOLDWHITE, RESET);
   if ((name_list = recup_karts(KART_FOLDER)) == NULL)
     return (-1);
   xy.y = 0;
@@ -51,12 +51,12 @@ int			all_karts(t_sprite ***sprites)
     {
       if (end_with(name_list[xy.x], ".png") == 0)
 	{
-	  if ((s = my_catalloc(KART_FOLDER, name_list[xy.x], NULL)) == NULL)
+	  if ((s = catalloc("%s%s", KART_FOLDER, name_list[xy.x])) == NULL)
 	    return (-1);
-	  my_printf(BOLDRED);
+	  mprintf(BOLDRED);
 	  if ((fill_karts(sprites[xy.y++], s)) == -1)
 	    return (-1);
-	  my_printf(KART_FOUND, BOLDGREEN, BOLDCYAN, s, BOLDGREEN, RESET);
+	  mprintf(KART_FOUND, BOLDGREEN, BOLDCYAN, s, BOLDGREEN, RESET);
 	  free(s);
 	}
       free(name_list[xy.x]);

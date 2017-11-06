@@ -39,7 +39,7 @@ int	can_see(sfVector2f from, sfVector2f to, char **map)
   while (x < to.x)
     {
       y = a * x + b;
-      if (x >= 0 && x < my_tablen(map) &&
+      if (x >= 0 && x < tablen(map) &&
 	  y >= 0 && y < my_strlen(map[(int)x]))
 	if (map[(int)x][(int)y] != '0')
 	  return (0);

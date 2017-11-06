@@ -42,12 +42,12 @@ char            **load_map(const char *pathname)
   if ((map = my_str_to_wordtab(s, '\n')) == NULL)
     return (NULL);
   free(s);
-  if (my_tablen(map) < 4 || my_strlen(map[0]) < 4)
+  if (tablen(map) < 4 || my_strlen(map[0]) < 4)
     {
-      free_tab(map);
+      free_tab(&map);
       return (NULL);
     }
   while (map[i] != NULL)
-    my_revstr(map[i++]);
+    revstr(map[i++]);
   return (map);
 }

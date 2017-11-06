@@ -15,14 +15,14 @@ int			reload(char **map_name, int i, t_preview *prev)
   int			j;
 
   j = 0;
-  free_tab(prev->current);
-  my_free(prev->pixels);
-  my_free(prev->name);
+  free_tab(&prev->current);
+  sfree(&prev->pixels);
+  sfree(&prev->name);
   free_sprite(prev->preview);
   if ((prev->current = load_file(map_name[i])) == NULL)
     return (-1);
   while (prev->current[j] != NULL)
-    my_revstr(prev->current[j++]);
+    revstr(prev->current[j++]);
   init_preview(prev);
   preview(prev);
   if ((prev->name = my_strdup(map_name[i])) == NULL)
@@ -37,7 +37,7 @@ int			swap_map(char **map_name, t_preview *prev, int *from)
 
   if (key_released(sfKeyRight))
     {
-      i = (i + 1) % (my_tablen(map_name));
+      i = (i + 1) % (tablen(map_name));
       if (reload(map_name, i, prev) == -1)
 	return (-1);
       *from = 1;
@@ -45,7 +45,7 @@ int			swap_map(char **map_name, t_preview *prev, int *from)
     }
   else if (key_released(sfKeyLeft))
     {
-      i = (i == 0) ? (my_tablen(map_name) - 1) : (i - 1);
+      i = (i == 0) ? (tablen(map_name) - 1) : (i - 1);
       *from = 0;
       reload(map_name, i, prev);
       return (1);
@@ -96,7 +96,7 @@ int			display_preview(t_window *window,
     {
       window_clear(window);
       close_win(window);
-      size = XYI(max_len(prev->current) * 5, my_tablen(prev->current) * 5);
+      size = XYI(max_len(prev->current) * 5, tablen(prev->current) * 5);
       bg_video(window, video);
       put_word(prev->name, XY(W_2 - my_strlen(prev->name) * 7, 50),
 	       window, sfBlack);
@@ -104,7 +104,7 @@ int			display_preview(t_window *window,
 						 H_2 - size.y), XY(10, 10));
       if ((status = swap_map(map_name, prev, &from)) == -1)
 	return (-1);
-      size = XYI(max_len(prev->current) * 5, my_tablen(prev->current) * 5);
+      size = XYI(max_len(prev->current) * 5, tablen(prev->current) * 5);
       (status == 1) ? slide_in(window, prev->preview, size, from) : 0;
       window_refresh(window);
     }
@@ -119,13 +119,13 @@ int			preview(t_preview *prev)
   t_minimap		info;
 
   i = 0;
-  while (i != my_tablen(prev->current))
+  while (i != tablen(prev->current))
     {
       j = 0;
       while (j != my_strlen(prev->current[i]))
 	{
 	  info.width = my_strlen(prev->current[i]);
-	  info.height = my_tablen(prev->current);
+	  info.height = tablen(prev->current);
 	  info.color = select_color(prev->current, i, j);
 	  put_mini_pixel(prev->pixels, info.width - j, i, info);
 	  j++;
@@ -134,7 +134,7 @@ int			preview(t_preview *prev)
     }
   sfTexture_updateFromPixels(prev->preview->texture,
 			     prev->pixels, my_strlen(prev->current[0]),
-			     my_tablen(prev->current), 0, 0);
+			     tablen(prev->current), 0, 0);
   sfSprite_setTexture(prev->preview->sprite, prev->preview->texture, sfTrue);
   return (0);
 }

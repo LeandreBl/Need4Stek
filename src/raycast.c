@@ -31,7 +31,7 @@ t_cast			raycast(sfVector2f pos, float direction, char **map)
   ray.x = pos.x;
   ray.y = pos.y;
   prev = ray;
-  mapsize = XYI(my_strlen(map[0]), my_tablen(map));
+  mapsize = XYI(my_strlen(map[0]), tablen(map));
   while (map[(int)ray.y][(int)ray.x] == '0'
 	 && ray.y < mapsize.y && ray.x < mapsize.x)
     {

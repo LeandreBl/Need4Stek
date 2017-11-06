@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Tue May  2 18:25:26 2017 Léandre Blanchard
-** Last update Tue Jun  6 15:16:41 2017 Léandre Blanchard
+** Last update Wed Nov  1 17:25:51 2017 Léandre Blanchard
 */
 
 #ifndef N4S_H_
@@ -18,6 +18,7 @@
 
 # include "my.h"
 # include "colors.h"
+# include "defines.h"
 # include "my_csfml.h"
 
 # define DIST_ 0.01
@@ -34,6 +35,8 @@
 # define WALLY 0.7 * sin(M_PI / 180.0 * info->dir)
 # define TRACEX 10 * cos(M_PI / 180.0 * (PDIR - FOV / 2))
 # define TRACEY 10 * sin(M_PI / 180.0 * (PDIR - FOV / 2))
+# define PROJX(x) x * cos(M_PI / 180.0 * angle)
+# define PROJY(y) y * sin(M_PI / 180.0 * angle)
 # define TESTX 10 * cos(M_PI / 180.0 * dir_dist.y)
 # define TESTY 10 * sin(M_PI /180.0 * dir_dist.y)
 # define ANGL angle(players[0].info->pos, players[i].info->pos
@@ -148,6 +151,8 @@ typedef struct	s_time
 }		t_time;
 
 t_time		timer;
+
+int		accelerator(t_window *window, float speed);
 
 float		distance(sfVector2f from, sfVector2f to);
 

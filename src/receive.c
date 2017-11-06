@@ -33,7 +33,7 @@ void		host_receive(t_player *players)
 			       &temp, sizeof(t_info),
 			       &size)) == sfSocketDisconnected)
 	{
-	  my_printf(PLAYER_DC, BOLDBLUE, i + 1, RESET);
+	  mprintf(PLAYER_DC, BOLDBLUE, i + 1, RESET);
 	  zeros(players[i].info->name, NAME_SIZE);
 	  players[i].info->status = -1;
 	  sfTcpSocket_destroy(players[i].socket);

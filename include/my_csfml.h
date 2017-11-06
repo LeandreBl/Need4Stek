@@ -5,17 +5,17 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Fri Mar 31 13:58:23 2017 Léandre Blanchard
-** Last update Fri May  5 11:11:48 2017 Léandre Blanchard
+** Last update Sun Oct  8 20:52:55 2017 Léandre Blanchard
 */
 
 #ifndef MY_CSFML_H_
 # define MY_CSFML_H_
 
-# include <SFML/Audio.h>
-# include <SFML/Network.h>
-# include <SFML/Graphics.h>
-# include <SFML/System.h>
-# include <SFML/Window.h>
+# include "SFML/Audio.h"
+# include "SFML/Network.h"
+# include "SFML/Graphics.h"
+# include "SFML/System.h"
+# include "SFML/Window.h"
 
 # include <sys/types.h>
 # include <sys/stat.h>
@@ -33,7 +33,15 @@
 
 # define KP(key) sfKeyboard_isKeyPressed(key)
 # define MP sfMouse_isButtonPressed(sfMouseLeft)
-
+/*
+** A window structure, containing it's size,
+** the position of the mouse using pos_mouse
+** a char * containing the name of the font for
+** put_text fcontions
+** an array of pixels, of the size of the window
+** an array of sfMusics *ptr
+** a texture linked to the array of pixels, same for the sprite
+*/
 typedef struct		s_window
 {
   int			width;
@@ -46,7 +54,11 @@ typedef struct		s_window
   sfTexture		*texture;
   sfSprite		*sprite;
 }			t_window;
-
+/*
+** Simple sprite structure, saving the texture and the sprite,
+** can be easely used with put_sprite, and create via a call
+** of create_sprite(<pathname>)
+*/
 typedef struct		s_sprite
 {
   sfSprite		*sprite;
@@ -54,6 +66,9 @@ typedef struct		s_sprite
 }			t_sprite;
 
 typedef t_window t_win;
+
+void		my_draw_line(t_window *window, sfVector2f from,
+			     sfVector2f to, sfColor color);
 
 void		free_sprite(t_sprite *sprite);
 

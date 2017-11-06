@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Thu May  4 12:29:27 2017 Léandre Blanchard
-** Last update Tue Jun  6 14:22:56 2017 Léandre Blanchard
+** Last update Fri Jun 16 07:59:26 2017 Léandre Blanchard
 */
 
 #include "n4s.h"
@@ -42,6 +42,7 @@ int			somedisplay(t_window *window, t_texture *textures,
   sprintf(disp, "%d min %d sec", (int)timer.time / 60, (int)timer.time % 60);
   put_word(disp, XY(10, H_ - 40), window, sfWhite);
   free(disp);
+  accelerator(window, speed);
   sfRenderWindow_display(window->window);
   return (0);
 }
@@ -68,6 +69,6 @@ int			ingame_host(t_window *window, t_texture *textures,
       wait_music(window);
     }
   sfMusic_stop(window->musics[0]);
-  free_tab(textures->map);
+  free_tab(&textures->map);
   return (0);
 }

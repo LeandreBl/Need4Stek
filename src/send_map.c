@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Wed May 31 17:45:49 2017 Léandre Blanchard
-** Last update Mon Jun  5 13:41:11 2017 Léandre Blanchard
+** Last update Wed Nov  1 17:24:18 2017 Léandre Blanchard
 */
 
 #include "n4s.h"
@@ -21,7 +21,7 @@ static int	all_received(t_player *players)
 	return (1);
       i++;
     }
-  my_printf("All players connected\n");
+  mprintf("All players connected\n");
   return (0);
 }
 
@@ -35,7 +35,7 @@ static void	host_send_map(char **map, t_player *players, sfVector2i size)
     {
       if (players[i].info->status >= 0)
 	{
-	  my_printf("Send for player <%s>\n", players[i].info->name);
+	  mprintf("Send for player <%s>\n", players[i].info->name);
 	  sfTcpSocket_setBlocking(players[i].socket, sfTrue);
 	  sfTcpSocket_send(players[i].socket, &size, sizeof(sfVector2i));
 	  j = 0;
@@ -53,7 +53,7 @@ int		send_map(char **map, t_player *players)
   int		i;
 
   i = 1;
-  size = xy_vectori(my_strlen(map[0]), my_tablen(map));
+  size = xy_vectori(my_strlen(map[0]), tablen(map));
   players[0].info->status = 4;
   host_send(players);
   host_send_map(map, players, size);
@@ -72,12 +72,12 @@ int		send_map(char **map, t_player *players)
 static void	manage_sockets_map(t_player *players)
 {
   while (players[1].info->status != 4)
-    my_printf("\rHost selecting map ...");
+    mprintf("\rHost selecting map ...");
   players[0].info->status = 4;
-  my_printf("\nMap selected !\n");
+  mprintf("\nMap selected !\n");
   client_send(&players[0]);
   sfTcpSocket_setBlocking(players[0].socket, sfTrue);
-  my_printf("Downloading map ...\n");
+  mprintf("Downloading map ...\n");
 }
 
 char		**receive_map(t_player *players)
@@ -94,7 +94,7 @@ char		**receive_map(t_player *players)
     if (sfTcpSocket_receive(players[0].socket, &size,
 			    sizeof(sfVector2i), &rc) == sfSocketDisconnected)
     return (NULL);
-  my_printf("map size : [%d, %d]\n", size.x, size.y);
+  mprintf("map size : [%d, %d]\n", size.x, size.y);
   if (rc != sizeof(sfVector2i))
     return (NULL);
   if ((map = my_alloc_tab(size.y, size.x)) == NULL)

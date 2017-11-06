@@ -43,7 +43,7 @@ void		sockets_manager_host(t_player *players)
 			      (void *)players)) == NULL
       || (receive = sfThread_create((void *)spam_receive,
 				    (void *)players)) == NULL)
-    my_printf("Failed to initialize threads :/\n");
+    mprintf("Failed to initialize threads :/\n");
   sfThread_launch(send);
   sfThread_launch(receive);
 }

@@ -43,7 +43,7 @@ int		listener(t_player *players)
 	  if ((a = first_inactive_player(players)) == -1)
 	    return (-1);
 	  sfTcpSocket_setBlocking(players[i].socket, sfFalse);
-	  my_printf("%sPlayer n°%d connected%s\n", BOLDGREEN, a + 1, RESET);
+	  mprintf("%sPlayer n°%d connected%s\n", BOLDGREEN, a + 1, RESET);
 	  i++;
 	}
       if (i > MAX_PLAYERS)

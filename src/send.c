@@ -44,9 +44,9 @@ void		client_send(t_player *player)
 	== sfSocketDisconnected)
       {
 	player[1].info->status = -2;
-	my_printf("%sHost Disconnected\n%s", BOLDRED, RESET);
+	mprintf("%sHost Disconnected\n%s", BOLDRED, RESET);
       }
   if (size != sizeof(t_info))
-    my_printf(SEND_ERR, BOLDWHITE, BOLDCYAN, sizeof(t_info) - size,
+    mprintf(SEND_ERR, BOLDWHITE, BOLDCYAN, sizeof(t_info) - size,
 	      BOLDWHITE, RESET);
 }

@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Tue May  2 18:25:14 2017 Léandre Blanchard
-** Last update Tue Jun  6 14:26:22 2017 Léandre Blanchard
+** Last update Wed Nov  1 18:57:43 2017 Léandre Blanchard
 */
 
 #include <X11/Xlib.h>
@@ -14,14 +14,13 @@
 
 static int	usage(void)
 {
-  my_printf(USAGE1, BOLDGREEN, USAGE2, RESET);
+  mprintf(USAGE1, BOLDGREEN, USAGE2, RESET);
   return (1);
 }
 
 static void	free_main(t_player *players,
 			  t_window *window,
-			  t_texture *textures,
-			  void *brk_ptr)
+			  t_texture *textures)
 {
   int		fd;
 
@@ -34,7 +33,6 @@ static void	free_main(t_player *players,
   free_players(players);
   free_textures(textures);
   free_window(window);
-  my_printf("%d\n", (long)brk_ptr);
 }
 
 static void	fill_nickname(t_player *players, char **av)
@@ -77,9 +75,7 @@ int		main(int ac, char **av)
   t_window	*window;
   t_texture	*textures;
   t_player	*players;
-  void		*a;
 
-  a = sbrk(0);
   if (error_gest(ac, av) != 0)
     return (usage());
   if ((window = init_window(720, 16.0 / 9.0, "Tek_Kart")) == NULL)
@@ -97,6 +93,6 @@ int		main(int ac, char **av)
     lobby(window, textures, players);
   if (my_strcmp(av[1], "--join") == 0 && av[2] != NULL)
     client(window, textures, players, sfIpAddress_fromString(av[2]));
-  free_main(players, window, textures, a);
+  free_main(players, window, textures);
   return (0);
 }

@@ -18,7 +18,7 @@ void		sigquit_handler(int sig)
     exit(84);
   if (sig == SIGINT)
     {
-      my_printf("Press Escape to quit\n");
+      mprintf("Press Escape to quit\n");
       status = 1;
     }
 }

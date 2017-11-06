@@ -16,7 +16,7 @@ static t_sprite		*load_one(const char *pathname, const char *name)
 
   if ((sprite = create_sprite(pathname)) == NULL)
     return (NULL);
-  my_printf(SPRITE_FOUND, BOLDGREEN, BOLDYELLOW, name,
+  mprintf(SPRITE_FOUND, BOLDGREEN, BOLDYELLOW, name,
 	    BOLDGREEN, RESET);
   return (sprite);
 }
@@ -37,6 +37,6 @@ int			all_sprites(t_sprite **sprites)
   while (i != NB_SPRITES)
     if (sprites[i++] == NULL)
       return (-1);
-  my_printf(BOX_, BOLDWHITE, RESET);
+  mprintf(BOX_, BOLDWHITE, RESET);
   return (0);
 }

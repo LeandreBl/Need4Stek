@@ -22,7 +22,7 @@ static int	connect_socket(sfTcpSocket *socket, sfIpAddress *addr)
     a++;
   if (a >= 10000)
     {
-      my_printf("%sCan't connect to %s%s%s <Timedout>\n%s",
+      mprintf("%sCan't connect to %s%s%s <Timedout>\n%s",
 		BOLDRED, BOLDCYAN, addr->address, BOLDRED, RESET);
       return (-1);
     }

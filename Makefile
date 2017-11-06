@@ -5,14 +5,20 @@
 ## Login   <leandre.blanchard@epitech.eu>
 ## 
 ## Started on  Thu Dec 15 20:24:11 2016 Léandre Blanchard
-## Last update Tue Jun  6 14:34:20 2017 Léandre Blanchard
+## Last update Wed Nov  1 20:27:20 2017 Léandre Blanchard
 ##
 
 NAME	= tek_kart
 
 CC	= gcc
 
-LIB	= -L./lib -lmy -L./lib/CSFML -l_my_csfml
+MAKE	= make -C
+
+LIB	= -L./lib/C -lmy
+LIB	+= -L./lib/CSFML -lmy_csfml
+LIB	+= -lc_graph_prog_full
+LIB	+= -lX11
+LIB	+= -lm
 
 SRCS	= src/main.c \
 	  src/init_textures.c \
@@ -27,6 +33,7 @@ SRCS	= src/main.c \
 	  src/gogoby.c \
 	  src/send_map.c \
 	  src/listener.c \
+	  src/accelerator.c \
 	  src/can_see.c \
 	  src/disp_preview.c \
 	  src/send.c \
@@ -53,18 +60,24 @@ RM	= rm -f
 
 CPPFLAGS += -I ./include
 
-CFLAGS	+= -W -Wall -Wextra -O2
+CFLAGS	+= -W -Wall -Wextra -O3
 
-all: $(LIB_A) $(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJ)
+	$(MAKE) lib/C
+	$(MAKE) lib/C/CSFML
 	$(CC) $(OBJ) -o $(NAME) $(CFLAGS) $(LIB)
 	@       tput setaf 2; cat include/signature; tput sgr0
 
 clean:
+	$(MAKE) lib/C clean
+	$(MAKE) lib/C/CSFML clean
 	$(RM) $(OBJ)
 
 fclean: clean
+	$(MAKE) lib/C fclean
+	$(MAKE) lib/C/CSFML fclean
 	$(RM) $(NAME)
 
 re: fclean all
