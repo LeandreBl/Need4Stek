@@ -1,4 +1,4 @@
 src/*.o
 sc
-./tek_kart
+tek_kart
 score.dat

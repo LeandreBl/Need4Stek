@@ -5,7 +5,7 @@
 ## Login   <leandre.blanchard@epitech.eu>
 ## 
 ## Started on  Thu Dec 15 20:24:11 2016 Léandre Blanchard
-## Last update Wed Nov  1 20:27:20 2017 Léandre Blanchard
+## Last update Tue Nov  7 00:55:16 2017 Léandre Blanchard
 ##
 
 NAME	= tek_kart
@@ -16,7 +16,7 @@ MAKE	= make -C
 
 LIB	= -L./lib/C -lmy
 LIB	+= -L./lib/CSFML -lmy_csfml
-LIB	+= -lc_graph_prog_full
+LIB	+= -lcsfml-network -lcsfml-graphics -lcsfml-window -lcsfml-audio -lcsfml-system
 LIB	+= -lX11
 LIB	+= -lm
 
