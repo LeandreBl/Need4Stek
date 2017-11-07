@@ -5,10 +5,19 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Wed May  3 16:55:48 2017 Léandre Blanchard
-** Last update Tue Nov  7 01:22:01 2017 Léandre Blanchard
+** Last update Tue Nov  7 01:31:47 2017 Léandre Blanchard
 */
 
 #include "n4s.h"
+
+static void	fill_addr_field(sfIpAddress *addr)
+{
+  char		*address;
+
+  address = get_ip(NULL);
+  memcopy(addr->address, address, 16);
+  sfree(&address);
+}
 
 int		first_inactive_player(t_player *players)
 {
@@ -28,15 +37,12 @@ int		listener(t_player *players)
 {
   sfTcpListener	*listener;
   sfIpAddress	addr;
-  char		*address;
   int		a;
   int		i;
 
   a = 0;
   i = 1;
-  address = get_ip(NULL);
-  memcopy(addr.address, address, my_strlen(address));
-  sfree(&address);
+  fill_addr_field(&addr);
   if ((listener = sfTcpListener_create()) == NULL)
     return (-1);
   if (sfTcpListener_listen(listener, PORT, addr) == sfSocketError)
