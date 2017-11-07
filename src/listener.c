@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Wed May  3 16:55:48 2017 Léandre Blanchard
-** Last update Tue Nov  7 01:12:58 2017 Léandre Blanchard
+** Last update Tue Nov  7 01:20:36 2017 Léandre Blanchard
 */
 
 #include "n4s.h"
@@ -28,12 +28,15 @@ int		listener(t_player *players)
 {
   sfTcpListener	*listener;
   sfIpAddress	addr;
+  char		*address;
   int		a;
   int		i;
 
   a = 0;
   i = 1;
-  addr = sfIpAddress_getLocalAddress();
+  address = get_ip(NULL);
+  memcopy(addr.address, address, my_strlen(address));
+  free(address);
   if ((listener = sfTcpListener_create()) == NULL)
     return (-1);
   if (sfTcpListener_listen(listener, PORT, addr) == sfSocketError)

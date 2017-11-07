@@ -5,7 +5,7 @@
 ## Login   <leandre.blanchard@epitech.eu>
 ## 
 ## Started on  Thu Dec 15 20:24:11 2016 Léandre Blanchard
-## Last update Tue Nov  7 00:55:16 2017 Léandre Blanchard
+## Last update Tue Nov  7 01:21:10 2017 Léandre Blanchard
 ##
 
 NAME	= tek_kart
@@ -20,39 +20,39 @@ LIB	+= -lcsfml-network -lcsfml-graphics -lcsfml-window -lcsfml-audio -lcsfml-sys
 LIB	+= -lX11
 LIB	+= -lm
 
-SRCS	= src/main.c \
-	  src/init_textures.c \
-	  src/init_players.c \
-	  src/select_map.c 	\
-	  src/init_musics.c \
-	  src/free.c \
-	  src/open_karts.c \
-	  src/bg_video.c \
-	  src/time.c \
-	  src/lobby.c \
-	  src/gogoby.c \
-	  src/send_map.c \
-	  src/listener.c \
-	  src/accelerator.c \
-	  src/can_see.c \
-	  src/disp_preview.c \
-	  src/send.c \
-	  src/receive.c \
-	  src/thread.c \
-	  src/client.c \
-	  src/ingame_host.c \
-	  src/ingame_client.c \
-	  src/raycast.c \
-	  src/moves.c \
-	  src/load_map.c \
-	  src/load_sprites.c \
-	  src/select_texture.c \
-	  src/display_ingame.c \
-	  src/display_players.c \
-	  src/inertial.c \
-	  src/motor_sound.c \
-	  src/signal.c \
-	  src/minimap.c
+SRCS	= src/main.c
+SRCS	+= src/init_textures.c
+SRCS    += src/init_players.c
+SRCS    += src/select_map.c
+SRCS    += src/init_musics.c
+SRCS    += src/free.c
+SRCS    += src/open_karts.c
+SRCS    += src/bg_video.c
+SRCS    += src/time.c
+SRCS    += src/lobby.c
+SRCS    += src/gogoby.c
+SRCS    += src/send_map.c
+SRCS    += src/listener.c
+SRCS    += src/accelerator.c
+SRCS    += src/can_see.c
+SRCS    += src/disp_preview.c
+SRCS    += src/send.c
+SRCS    += src/receive.c
+SRCS    += src/thread.c
+SRCS    += src/client.c
+SRCS    += src/ingame_host.c
+SRCS    += src/ingame_client.c
+SRCS    += src/raycast.c
+SRCS    += src/moves.c
+SRCS    += src/load_map.c
+SRCS    += src/load_sprites.c
+SRCS    += src/select_texture.c
+SRCS    += src/display_ingame.c
+SRCS    += src/display_players.c
+SRCS    += src/inertial.c
+SRCS    += src/motor_sound.c
+SRCS    += src/signal.c
+SRCS    += src/minimap.c
 
 OBJ	= $(SRCS:.c=.o)
 
