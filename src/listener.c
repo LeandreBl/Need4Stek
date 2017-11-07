@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Wed May  3 16:55:48 2017 Léandre Blanchard
-** Last update Tue May 30 19:50:38 2017 Léandre Blanchard
+** Last update Tue Nov  7 01:12:58 2017 Léandre Blanchard
 */
 
 #include "n4s.h"
@@ -27,14 +27,16 @@ int		first_inactive_player(t_player *players)
 int		listener(t_player *players)
 {
   sfTcpListener	*listener;
+  sfIpAddress	addr;
   int		a;
   int		i;
 
   a = 0;
   i = 1;
+  addr = sfIpAddress_getLocalAddress();
   if ((listener = sfTcpListener_create()) == NULL)
     return (-1);
-  if (sfTcpListener_listen(listener, PORT) == sfSocketError)
+  if (sfTcpListener_listen(listener, PORT, addr) == sfSocketError)
     players[0].info->status = -2;
   while (i < MAX_PLAYERS && i != -1 && players[0].info->status != -2)
     {
