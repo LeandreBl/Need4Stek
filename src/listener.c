@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Wed May  3 16:55:48 2017 Léandre Blanchard
-** Last update Tue Nov  7 01:31:47 2017 Léandre Blanchard
+** Last update Tue Nov  7 20:42:22 2017 Léandre Blanchard
 */
 
 #include "n4s.h"
@@ -15,7 +15,7 @@ static void	fill_addr_field(sfIpAddress *addr)
   char		*address;
 
   address = get_ip(NULL);
-  memcopy(addr->address, address, 16);
+  my_strcpy(addr->address, address);
   sfree(&address);
 }
 
