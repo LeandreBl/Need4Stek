@@ -10,14 +10,14 @@
 
 #include "n4s.h"
 
-/*static void	fill_addr_field(sfIpAddress *addr)
+static void	fill_addr_field(sfIpAddress *addr)
 {
   char		*address;
 
   address = get_ip(NULL);
   my_strcpy(addr->address, address);
   sfree(&address);
-	}*/
+}
 
 int		first_inactive_player(t_player *players)
 {
@@ -36,16 +36,16 @@ int		first_inactive_player(t_player *players)
 int		listener(t_player *players)
 {
   sfTcpListener	*listener;
-  //sfIpAddress	addr;
+  sfIpAddress	addr;
   int		a;
   int		i;
 
   a = 0;
   i = 1;
-  //fill_addr_field(&addr);
+  fill_addr_field(&addr);
   if ((listener = sfTcpListener_create()) == NULL)
     return (-1);
-  if (sfTcpListener_listen(listener, PORT/*, addr*/) == sfSocketError)
+  if (sfTcpListener_listen(listener, PORT, addr) == sfSocketError)
     players[0].info->status = -2;
   while (i < MAX_PLAYERS && i != -1 && players[0].info->status != -2)
     {

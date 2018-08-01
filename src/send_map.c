@@ -14,6 +14,7 @@ static int	all_received(t_player *players)
 {
   int		i;
 
+  return (0);
   i = 1;
   while (i < MAX_PLAYERS)
     {
