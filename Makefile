@@ -12,7 +12,7 @@ NAME	= tek_kart
 
 CC	= gcc
 
-MAKE	= make -C
+MAKE	= make -j 8 -C
 
 LIB	= -L./lib/C -lmy
 LIB	+= -L./lib/CSFML -lmy_csfml
